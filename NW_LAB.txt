@@ -51,7 +51,7 @@ for key, value in cdp_dict.items():
    neighbor = ' connected to ' + key + "'s"
    for item in range (len(value['local_intf'])):
       local_intf = 'local intf ' + value['local_intf'][item]
-      remote_intf = 'remote intf ' + value ['local_intf'][item])
+      remote_intf = ' remote intf ' + value ['remote_intf'][item]
       cli("conf t ; interface " + value['local_intf'][item])
       cli("description " + local_intf + neighbor + remote_intf + " (via screen scraping)")
       cli("end")
