@@ -12,9 +12,6 @@ cdp_table[-1]
 for iter in range(6):
    cdp_table.pop(0)
 
-
-
-
 pprint.pprint(cdp_table)
 cdp_list1 - [line.split() for line in cdp_table]
 pprint.pprint(cdp_list1)
@@ -25,7 +22,7 @@ pprint.pprint(cdp_list2)
 
 for item in cdp_list2:
    item_location = cdp_list2.index(item)
-   if len(item == 1:
+   if len(item) == 1:
       cdp_list2[item_location + 1][0:0] = item
       cdp_list2.pop(item_location)
    elif 'Total' in item:
