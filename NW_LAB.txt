@@ -1,0 +1,64 @@
+python
+from cisco import *
+import pprint
+cdp_dict = dict ()
+print cdp_dict.items()
+[]
+cdp_table = cli("show cdp neighbor")
+print cdp_table
+pprint.pprint(cdp_table)
+cdp_table[0]
+cdp_table[-1]
+for iter in range(6):
+   cdp_table.pop(0)
+
+
+
+
+pprint.pprint(cdp_table)
+cdp_list1 - [line.split() for line in cdp_table]
+pprint.pprint(cdp_list1)
+cdp_list2 = [item for item in cdp_list1 if item != []]
+pprint.pprint(cdp_list2)
+
+
+
+for item in cdp_list2:
+   item_location = cdp_list2.index(item)
+   if len(item == 1:
+      cdp_list2[item_location + 1][0:0] = item
+      cdp_list2.pop(item_location)
+   elif 'Total' in item:
+      cdp_list2.pop(item_location)
+
+
+
+pprint.pprint(cdp_list2)
+
+
+4. 
+
+for item in cdp_list2:
+   if item[0] not in cdp_dict.keys():
+      cdp_dict[item[0]] = {}
+      cdp_dict[item[0]]['local_intf'] = [item[1]]
+      cdp_dict[item[0]]['remote_intf'] = [item[-1]]
+   elif item[1] not in cdp_dict[item[0]]['local_intf']:
+      cdp_dict[item[0]]['local_intf'].append(item[1])
+      cdp_dict[item[0]]['remote_intf'].append(item[-1])
+
+print cdp_dict.items()
+
+
+for key, value in cdp_dict.items():
+   neighbor = ' connected to ' + key + "'s"
+   for item in range (len(value['local_intf'])):
+      local_intf = 'local intf ' + value['local_intf'][item]
+      remote_intf = ' remote intf ' + value ['local_intf'][item])
+      cli("conf t ; interface " + value['local_intf'][item])
+      cli("description " + local_intf + neighbor + remote_intf + " (via screen scraping)")
+      cli("end")
+
+
+
+
